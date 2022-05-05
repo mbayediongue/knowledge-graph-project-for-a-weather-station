@@ -13,6 +13,29 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDirectionVent
+:aPourDirectionVent rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :MesureMeteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourLieuDit
+:aPourLieuDit rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPrécipitation
+:aPourPrécipitation rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourStationMétéo
+:aPourStationMétéo rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :MesureMeteo ;
+                   rdfs:range :StationMeteo .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnite
 :aPourUnite rdf:type owl:ObjectProperty ;
             owl:inverseOf :mesureLaGrandeurPhysique ;
@@ -20,9 +43,17 @@
             rdfs:range :Unit .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourVitesseVent
+:aPourVitesseVent rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :Vitesse .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#altitude
 :altitude rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty .
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :PhenomeneMeteoExtreme ;
+          rdfs:range :Précipitations .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#correspondAuLieu
@@ -58,12 +89,19 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#latitude
 :latitude rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty .
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Commune ,
+                      :Lieu-Dit ,
+                      :StationMeteo ;
+          rdfs:range :DegréAngulaire .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#longitude
 :longitude rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf owl:topObjectProperty .
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :Commune ,
+                       :Lieu-Dit ,
+                       :StationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#mesureLaGrandeurPhysique
@@ -82,6 +120,13 @@
 #    Data properties
 #################################################################
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDate
+:aPourDate rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :MesureMeteo ;
+           rdfs:range xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourValeur
 :aPourValeur rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:double .
@@ -96,12 +141,48 @@
 #    Classes
 #################################################################
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Angle
+:Angle rdf:type owl:Class ;
+       rdfs:subClassOf :GrandeurGeométrique .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Anticyclone
+:Anticyclone rdf:type owl:Class ;
+             rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Blizzard
+:Blizzard rdf:type owl:Class ;
+          rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Canicule
+:Canicule rdf:type owl:Class ;
+          rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Commune
 :Commune rdf:type owl:Class ;
          rdfs:subClassOf :Lieu ;
          owl:disjointWith :Departement ,
                           :Lieu-Dit ,
                           :Region .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Cyclone
+:Cyclone rdf:type owl:Class ;
+         rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DegréAngulaire
+:DegréAngulaire rdf:type owl:Class ;
+                rdfs:subClassOf :Unit ;
+                rdfs:comment "ATTENTION : On sait pas si on fait une classe ou autre chose pour représenter un degré" .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DegréCelcius
+:DegréCelcius rdf:type owl:Class ;
+              rdfs:subClassOf :Unit .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Departement
@@ -111,9 +192,18 @@
                               :Region .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Depression
+:Depression rdf:type owl:Class ;
+            rdfs:subClassOf :Phenomene_Meteo .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Direction
 :Direction rdf:type owl:Class ;
-           rdfs:subClassOf :Vent .
+           rdfs:subClassOf :GrandeurGeométrique .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#GrandeurGeométrique
+:GrandeurGeométrique rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#GrandeurPhysique
@@ -123,9 +213,19 @@
                                    :Unit .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Grèle
+:Grèle rdf:type owl:Class ;
+       rdfs:subClassOf :Précipitations .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Humidité
 :Humidité rdf:type owl:Class ;
           rdfs:subClassOf :GrandeurPhysique .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Jour
+:Jour rdf:type owl:Class ;
+      rdfs:subClassOf :Lumière .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lieu
@@ -143,13 +243,57 @@
                      ) .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lumière
+:Lumière rdf:type owl:Class ;
+         rdfs:subClassOf :Phenomene_Meteo .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureMeteo
 :MesureMeteo rdf:type owl:Class ;
-             owl:disjointWith :Unit .
+             owl:disjointWith :Unit ;
+             owl:hasKey ( :aPourStationMétéo
+                        ) ,
+                        ( :aPourDate
+                        ) .
 
 
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Phenomene
-:Phenomene rdf:type owl:Class .
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Neige
+:Neige rdf:type owl:Class ;
+       rdfs:subClassOf :Précipitations .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuageux
+:Nuageux rdf:type owl:Class ;
+         rdfs:subClassOf :Phenomene_Meteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuit
+:Nuit rdf:type owl:Class ;
+      rdfs:subClassOf :Lumière .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
+:Orage rdf:type owl:Class ;
+       rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ouragan
+:Ouragan rdf:type owl:Class ;
+         rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#PhenomeneMeteoExtreme
+:PhenomeneMeteoExtreme rdf:type owl:Class ;
+                       rdfs:subClassOf :Phenomene_Meteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Phenomene_Meteo
+:Phenomene_Meteo rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pluie
+:Pluie rdf:type owl:Class ;
+       rdfs:subClassOf :Précipitations .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pression
@@ -158,7 +302,13 @@
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Précipitations
-:Précipitations rdf:type owl:Class .
+:Précipitations rdf:type owl:Class ;
+                rdfs:subClassOf :Phenomene_Meteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RafaleDeVent
+:RafaleDeVent rdf:type owl:Class ;
+              rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Region
@@ -175,12 +325,43 @@
              rdfs:subClassOf :GrandeurPhysique .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tempete
+:Tempete rdf:type owl:Class ;
+         rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeNeige
+:TempeteDeNeige rdf:type owl:Class ;
+                rdfs:subClassOf :Tempete .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeSable
+:TempeteDeSable rdf:type owl:Class ;
+                rdfs:subClassOf :Tempete .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempèteDeGrèle
+:TempèteDeGrèle rdf:type owl:Class ;
+                rdfs:subClassOf :Tempete .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tonerre
+:Tonerre rdf:type owl:Class ;
+         rdfs:subClassOf :Précipitations .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tornade
+:Tornade rdf:type owl:Class ;
+         rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Unit
 :Unit rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vent
-:Vent rdf:type owl:Class .
+:Vent rdf:type owl:Class ;
+      rdfs:subClassOf :Phenomene_Meteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vitesse
@@ -188,14 +369,14 @@
          rdfs:subClassOf :GrandeurPhysique .
 
 
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vitesse_Rafale
-:Vitesse_Rafale rdf:type owl:Class ;
-                rdfs:subClassOf :Vent .
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hectoPascal
+:hectoPascal rdf:type owl:Class ;
+             rdfs:subClassOf :Unit .
 
 
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vitesse_moyenne
-:Vitesse_moyenne rdf:type owl:Class ;
-                 rdfs:subClassOf :Vent .
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s
+<http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf :Unit .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

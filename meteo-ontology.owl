@@ -123,8 +123,24 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDate
 :aPourDate rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :MesureMeteo ;
+           rdfs:domain :MesureMeteo ,
+                       :PrevisionMeteo ;
            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDateCreation
+:aPourDateCreation rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :aPourDate ;
+                   rdfs:domain :MesureMeteo ,
+                               :PrevisionMeteo ;
+                   rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDatePrevisionnelle
+:aPourDatePrevisionnelle rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :aPourDate ;
+                         rdfs:domain :PrevisionMeteo ;
+                         rdfs:range xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourValeur
@@ -245,7 +261,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lumière
 :Lumière rdf:type owl:Class ;
-         rdfs:subClassOf :Phenomene_Meteo .
+         rdfs:subClassOf :ObservationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureMeteo
@@ -265,12 +281,16 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuageux
 :Nuageux rdf:type owl:Class ;
-         rdfs:subClassOf :Phenomene_Meteo .
+         rdfs:subClassOf :ObservationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuit
 :Nuit rdf:type owl:Class ;
       rdfs:subClassOf :Lumière .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ObservationMeteo
+:ObservationMeteo rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
@@ -281,6 +301,11 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ouragan
 :Ouragan rdf:type owl:Class ;
          rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pays
+:Pays rdf:type owl:Class ;
+      rdfs:subClassOf :Lieu .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#PhenomeneMeteoExtreme
@@ -325,6 +350,10 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#StationMeteo
 :StationMeteo rdf:type owl:Class ;
+              owl:hasKey ( :latitude
+                         ) ,
+                         ( :longitude
+                         ) ;
               rdfs:comment "Classe pour représenté les stations météos placées à une latitude et longitude déterminé." .
 
 

@@ -218,6 +218,21 @@
            rdfs:subClassOf :GrandeurGeométrique .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ensoleillé
+:Ensoleillé rdf:type owl:Class ;
+            rdfs:subClassOf :EtatDuCiel .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#EtatDuCiel
+:EtatDuCiel rdf:type owl:Class ;
+            rdfs:subClassOf :ObservationMeteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#FaibleEclaircie
+:FaibleEclaircie rdf:type owl:Class ;
+                 rdfs:subClassOf :EtatDuCiel .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#GrandeurGeométrique
 :GrandeurGeométrique rdf:type owl:Class .
 
@@ -281,7 +296,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuageux
 :Nuageux rdf:type owl:Class ;
-         rdfs:subClassOf :ObservationMeteo .
+         rdfs:subClassOf :EtatDuCiel .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuit
@@ -290,7 +305,8 @@
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ObservationMeteo
-:ObservationMeteo rdf:type owl:Class .
+:ObservationMeteo rdf:type owl:Class ;
+                  rdfs:comment "Classe qui correspond à ce qui peut être décrit à un instant précis vis à vis de la météo: le vent, la luminosité, l'état du ciel,..." .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
@@ -398,7 +414,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vent
 :Vent rdf:type owl:Class ;
-      rdfs:subClassOf :Phenomene_Meteo .
+      rdfs:subClassOf :ObservationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vitesse

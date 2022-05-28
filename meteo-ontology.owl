@@ -213,6 +213,11 @@
             rdfs:subClassOf :Phenomene_Meteo .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DescriptionMeteo
+:DescriptionMeteo rdf:type owl:Class ;
+                  rdfs:comment "Classe pour décrire un état métérologique" .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Direction
 :Direction rdf:type owl:Class ;
            rdfs:subClassOf :GrandeurGeométrique .
@@ -225,7 +230,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#EtatDuCiel
 :EtatDuCiel rdf:type owl:Class ;
-            rdfs:subClassOf :ObservationMeteo .
+            rdfs:subClassOf :DescriptionMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#FaibleEclaircie
@@ -276,7 +281,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lumière
 :Lumière rdf:type owl:Class ;
-         rdfs:subClassOf :ObservationMeteo .
+         rdfs:subClassOf :DescriptionMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureMeteo
@@ -304,9 +309,14 @@
       rdfs:subClassOf :Lumière .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nébulosité
+:Nébulosité rdf:type owl:Class ;
+            rdfs:subClassOf :ObservationMeteo .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ObservationMeteo
 :ObservationMeteo rdf:type owl:Class ;
-                  rdfs:comment "Classe qui correspond à ce qui peut être décrit à un instant précis vis à vis de la météo: le vent, la luminosité, l'état du ciel,..." .
+                  rdfs:comment "Classe qui correspond à ce qui peut être mesuré à un instant précis vis à vis de la météo: le vent, la luminosité,la pluviométrie,..." .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
@@ -339,6 +349,11 @@
        rdfs:subClassOf :Précipitations .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pluviométrie
+:Pluviométrie rdf:type owl:Class ;
+              rdfs:subClassOf :ObservationMeteo .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pression
 :Pression rdf:type owl:Class ;
           rdfs:subClassOf :GrandeurPhysique .
@@ -357,6 +372,11 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RafaleDeVent
 :RafaleDeVent rdf:type owl:Class ;
               rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RayonnementSolaire
+:RayonnementSolaire rdf:type owl:Class ;
+                    rdfs:subClassOf :ObservationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Region

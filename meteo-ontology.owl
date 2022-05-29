@@ -28,7 +28,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDirectionVent
 :aPourDirectionVent rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :hasMeteoObservation ;
+                    rdfs:subPropertyOf :hasCaracteristics ;
                     rdf:type owl:FunctionalProperty ;
                     rdfs:domain :MesureMeteo ;
                     rdfs:range :WindDirectionValuePartition .
@@ -48,7 +48,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPrécipitation
 :aPourPrécipitation rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :hasMeteoObservation ;
+                    rdfs:subPropertyOf :hasCaracteristics ;
                     rdf:type owl:FunctionalProperty ;
                     rdfs:range :SnowLevelValuePartition .
 
@@ -89,7 +89,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourVitesseVent
 :aPourVitesseVent rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :hasMeteoObservation ;
+                  rdfs:subPropertyOf :hasCaracteristics ;
                   rdfs:domain :MesureVitesse ;
                   rdfs:range :WindSpeedValuePartition .
 
@@ -132,9 +132,9 @@
 :estDansLeLieu rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasMeteoObservation
-:hasMeteoObservation rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf owl:topObjectProperty .
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasCaracteristics
+:hasCaracteristics rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasSnowLevel
@@ -144,21 +144,21 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasSunshine
 :hasSunshine rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :hasMeteoObservation ;
+             rdfs:subPropertyOf :hasCaracteristics ;
              rdf:type owl:FunctionalProperty ;
              rdfs:range :SunShineValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasTemperature
 :hasTemperature rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :hasMeteoObservation ;
+                rdfs:subPropertyOf :hasCaracteristics ;
                 rdf:type owl:FunctionalProperty ;
                 rdfs:range :TemperatureValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasVisibility
 :hasVisibility rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :hasMeteoObservation .
+               rdfs:subPropertyOf :hasCaracteristics .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#latitude

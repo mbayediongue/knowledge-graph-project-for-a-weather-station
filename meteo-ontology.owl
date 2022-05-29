@@ -125,8 +125,7 @@
           rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:domain :Commune ,
                       :Lieu-Dit ,
-                      :StationMeteo ;
-          rdfs:range :DegréAngulaire .
+                      :StationMeteo .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#longitude
@@ -216,23 +215,26 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Anticyclone
 :Anticyclone rdf:type owl:Class ;
-             rdfs:subClassOf :PhenomeneMeteoExtreme ;
+             rdfs:subClassOf :Phenomene_Meteo ;
              rdfs:label "Anticyclone"@en ,
-                        "Anticyclone"@fr .
+                        "Anticyclone"@fr ;
+             <http://www.w3.org/2004/02/skos/core#definition> "An area of high atmospheric pressure that causes calm weather"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Blizzard
 :Blizzard rdf:type owl:Class ;
-          rdfs:subClassOf :PhenomeneMeteoExtreme ;
+          rdfs:subClassOf :Tempete ;
           rdfs:label "Blizzard"@en ,
-                     "Blizzard"@fr .
+                     "Blizzard"@fr ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A snow storm"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Canicule
 :Canicule rdf:type owl:Class ;
           rdfs:subClassOf :PhenomeneMeteoExtreme ;
           rdfs:label "Canicule"@fr ,
-                     "Heatwave"@en .
+                     "Heatwave"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A period of time such as a few weeks when the weather is much hotter than usual"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Commune
@@ -242,25 +244,23 @@
                           :Lieu-Dit ,
                           :Region ;
          rdfs:label "Commune"@fr ,
-                    "Town"@en .
+                    "Town"@en ;
+         <http://www.w3.org/2004/02/skos/core#definition> "A built-up area with a name, defined boundaries, and local government."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Cyclone
 :Cyclone rdf:type owl:Class ;
          rdfs:subClassOf :PhenomeneMeteoExtreme ;
          rdfs:label "Cyclone"@en ,
-                    "Cyclone"@fr .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DegréAngulaire
-:DegréAngulaire rdf:type owl:Class ;
-                rdfs:subClassOf :Unit ;
-                rdfs:comment "ATTENTION : On sait pas si on fait une classe ou autre chose pour représenter un degré" .
+                    "Cyclone"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Wind moving in a circular direction towards an area of low atmospheric pressure"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DegréCelcius
 :DegréCelcius rdf:type owl:Class ;
-              rdfs:subClassOf :Unit .
+              rdfs:subClassOf :Unit ;
+              rdfs:label "CelsiusDegree"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Unit that describes an angle"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Departement
@@ -269,56 +269,63 @@
              owl:disjointWith :Lieu-Dit ,
                               :Region ;
              rdfs:label "Département"@fr ,
-                        "FrenchDepartment"@en .
+                        "FrenchDepartment"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Level of government under the national level, between the administrative regions and the communes."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Depression
 :Depression rdf:type owl:Class ;
             rdfs:subClassOf :Phenomene_Meteo ;
             rdfs:label "Depression"@en ,
-                       "Depression"@fr .
+                       "Depression"@fr ;
+            <http://www.w3.org/2004/02/skos/core#definition> "An area of low pressure in the atmosphere"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DescriptionMeteo
 :DescriptionMeteo rdf:type owl:Class ;
-                  rdfs:comment "Classe pour décrire un état métérologique"@fr ;
                   rdfs:label "DescriptionMeteo"@fr ,
-                             "WeatherDescription"@en .
+                             "WeatherDescription"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Classe pour décrire un état métérologique"@fr .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ensoleillé
 :Ensoleillé rdf:type owl:Class ;
             rdfs:subClassOf :EtatDuCiel ;
             rdfs:label "Ensoleillé"@fr ,
-                       "Sunny"@en .
+                       "Sunny"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Sky with almost no clouds"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#EtatDuCiel
 :EtatDuCiel rdf:type owl:Class ;
             rdfs:subClassOf :DescriptionMeteo ;
             rdfs:label "EtatDuCiel"@fr ,
-                       "SkyState"@en .
+                       "SkyState"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Description of the meteo by the density of clouds"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#FaibleEclaircie
 :FaibleEclaircie rdf:type owl:Class ;
                  rdfs:subClassOf :EtatDuCiel ;
                  rdfs:label "FaibleEclaircie"@fr ,
-                            "WeakThinning"@en .
+                            "WeakThinning"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "sky with clouds and a few rays of sunlight"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Grèle
 :Grèle rdf:type owl:Class ;
        rdfs:subClassOf :Précipitations ;
        rdfs:label "Grèle"@fr ,
-                  "Hail"@en .
+                  "Hail"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "Pellets of frozen rain which fall in showers from cumulonimbus clouds"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Jour
 :Jour rdf:type owl:Class ;
       rdfs:subClassOf :Lumière ;
       rdfs:label "Daylight"@en ,
-                 "Jour"@fr .
+                 "Jour"@fr ;
+      <http://www.w3.org/2004/02/skos/core#definition> "Period when there is natural light from the sun"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lieu
@@ -327,7 +334,8 @@
                        :MesurePhysique ,
                        :Unit ;
       rdfs:label "Lieu"@fr ,
-                 "Place"@en .
+                 "Place"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "a position, location, or area"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lieu-Dit
@@ -338,28 +346,32 @@
                        :longitude
                      ) ;
           rdfs:label "Hamlet"@en ,
-                     "Lieu-dit"@fr .
+                     "Lieu-dit"@fr ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A small settlement, generally one smaller than a village."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lumière
 :Lumière rdf:type owl:Class ;
          rdfs:subClassOf :DescriptionMeteo ;
-         rdfs:label "Light"@en ,
-                    "Lumière"@fr .
+         rdfs:label "LightPeriodDay"@en ,
+                    "LumièreJournée"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Period of the day defined by the lightning of celestial bodies"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureAngle
 :MesureAngle rdf:type owl:Class ;
              rdfs:subClassOf :MesurePhysique ;
              rdfs:label "AngelMeasurement"@en ,
-                        "MesureAngle"@fr .
+                        "MesureAngle"@fr ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure an angle"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureDirection
 :MesureDirection rdf:type owl:Class ;
                  rdfs:subClassOf :MesurePhysique ;
                  rdfs:label "DirectionMeasurement"@en ,
-                            "MesureDirection"@fr .
+                            "MesureDirection"@fr ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure a direction"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureHumidité
@@ -370,7 +382,8 @@
                            ( :aPourValeur
                            ) ;
                 rdfs:label "HumidityMeasurement"@en ,
-                           "MesureHumidité"@fr .
+                           "MesureHumidité"@fr ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure humidity"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureMeteo
@@ -381,9 +394,9 @@
                         ) ,
                         ( :aPourDate
                         ) ;
-             rdfs:comment "Classe pour réprésenter des mesures métérologiques réalisées à des instants déterminés"@fr ;
              rdfs:label "MesureMeteo"@fr ,
-                        "WeatherMeasurement"@en .
+                        "WeatherMeasurement"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Set of data that allow to define a weather at a given time"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesurePhysique
@@ -394,7 +407,8 @@
                            ( :aPourValeur
                            ) ;
                 rdfs:label "MesurePhysique"@fr ,
-                           "PhysicsMeasurement"@en .
+                           "PhysicsMeasurement"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "the size, weight, level, etc. of sth shown in units used for measuring"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesurePression
@@ -405,7 +419,8 @@
                            ( :aPourValeur
                            ) ;
                 rdfs:label "MesurePression"@fr ,
-                           "PressionMeasurement"@en .
+                           "PressionMeasurement"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure pression"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureTemperature
@@ -416,7 +431,8 @@
                               ( :aPourValeur
                               ) ;
                    rdfs:label "MesureTemperature"@fr ,
-                              "TemperatureMeasurement"@en .
+                              "TemperatureMeasurement"@en ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure temperature"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureVitesse
@@ -425,28 +441,32 @@
                owl:hasKey ( :aPourValeur
                           ) ;
                rdfs:label "MesureVitesse"@fr ,
-                          "SpeedMeasurement"@fr .
+                          "SpeedMeasurement"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure speed"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Neige
 :Neige rdf:type owl:Class ;
        rdfs:subClassOf :Précipitations ;
        rdfs:label "Neige"@fr ,
-                  "Snow"@en .
+                  "Snow"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "Atmospheric water vapour frozen into ice crystals and falling in light white flakes or lying on the ground as a white layer"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuageux
 :Nuageux rdf:type owl:Class ;
          rdfs:subClassOf :EtatDuCiel ;
          rdfs:label "Cloudy"@en ,
-                    "Nuageux"@fr .
+                    "Nuageux"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "sky with sunlight absorded by clouds"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuit
 :Nuit rdf:type owl:Class ;
       rdfs:subClassOf :Lumière ;
       rdfs:label "Dark"@en ,
-                 "Nuit"@fr .
+                 "Nuit"@fr ;
+      <http://www.w3.org/2004/02/skos/core#definition> "Period when there is no light from the sun"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nébulosité
@@ -458,51 +478,58 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ObservationMeteo
 :ObservationMeteo rdf:type owl:Class ;
+                  rdfs:subClassOf :MesurePhysique ;
                   rdfs:comment "Classe qui correspond à ce qui peut être mesuré à un instant précis vis à vis de la météo: le vent, la luminosité,la pluviométrie,..."@fr ;
                   rdfs:label "ObservationMeteo"@fr ,
-                             "WeatherObservation"@en .
+                             "WeatherObservation"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Measurement of a Meteoroligical data"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
 :Orage rdf:type owl:Class ;
-       rdfs:subClassOf :PhenomeneMeteoExtreme ;
+       rdfs:subClassOf :Tempete ;
        rdfs:label "Orage"@fr ,
-                  "Thunderstorm"@en .
+                  "Thunderstorm"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "A storm in which there is thunder"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ouragan
 :Ouragan rdf:type owl:Class ;
-         rdfs:subClassOf :PhenomeneMeteoExtreme ;
+         rdfs:subClassOf :Tempete ;
          rdfs:label "Hurricane"@en ,
-                    "Ouragan"@fr .
+                    "Ouragan"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "A large destructive storm that forms over the ocean"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pays
 :Pays rdf:type owl:Class ;
       rdfs:subClassOf :Lieu ;
       rdfs:label "Country"@en ,
-                 "Pays"@fr .
+                 "Pays"@fr ;
+      <http://www.w3.org/2004/02/skos/core#definition> "An area of land that has its own government, army."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#PhenomeneMeteoExtreme
 :PhenomeneMeteoExtreme rdf:type owl:Class ;
                        rdfs:subClassOf :Phenomene_Meteo ;
                        rdfs:label "ExtremWeatherPhenomena"@en ,
-                                  "PhenomeneMeteoExtreme"@fr .
+                                  "PhenomeneMeteoExtreme"@fr ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "Wheather phenomena that can deals a lot of human or material dommages."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Phenomene_Meteo
 :Phenomene_Meteo rdf:type owl:Class ;
-                 rdfs:comment "Classe pour décrire un phénomène météo"@fr ;
                  rdfs:label "Phenomene_Meteo"@fr ,
-                            "WeatherPhenomena"@en .
+                            "WeatherPhenomena"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Natural events that occur as a result of one or a combination of the water cycle, pressure systems and the Coriolis effect."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pluie
 :Pluie rdf:type owl:Class ;
        rdfs:subClassOf :Précipitations ;
        rdfs:label "Pluie"@fr ,
-                  "Rain"@en .
+                  "Rain"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "The condensed moisture of the atmosphere falling visibly in separate drops"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pluviométrie
@@ -515,22 +542,24 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#PrevisionMeteo
 :PrevisionMeteo rdf:type owl:Class ;
                 rdfs:label "PrevisionMeteo"@fr ,
+                           "Set of computed data that is used to describe a future meteo state"@en ,
                            "WeatherPrevision"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Précipitations
 :Précipitations rdf:type owl:Class ;
                 rdfs:subClassOf :Phenomene_Meteo ;
-                rdfs:comment "Classe associé au précipitations métérologiques" ;
                 rdfs:label "Precipitation"@en ,
-                           "Précipitations"@fr .
+                           "Précipitations"@fr ;
+                <http://www.w3.org/2004/02/skos/core#definition> "water that falls from the clouds towards the ground"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RafaleDeVent
 :RafaleDeVent rdf:type owl:Class ;
               rdfs:subClassOf :PhenomeneMeteoExtreme ;
               rdfs:label "GustOfWind"@en ,
-                         "RafaleDeVent"@fr .
+                         "RafaleDeVent"@fr ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Strong air current, sudden and violent."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RayonnementSolaire
@@ -544,7 +573,8 @@
 :Region rdf:type owl:Class ;
         rdfs:subClassOf :Lieu ;
         rdfs:label "Region"@en ,
-                   "Region"@fr .
+                   "Region"@fr ;
+        <http://www.w3.org/2004/02/skos/core#definition> "A particular area or part of the world, or any of the large official areas into which a country is divided."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#StationMeteo
@@ -553,55 +583,55 @@
                          ) ,
                          ( :longitude
                          ) ;
-              rdfs:comment "Classe pour représenté les stations météos placées à une latitude et longitude déterminé." ;
-              rdfs:label "StationMeteo"@fr ,
-                         "WeatherStation"@en .
+              rdfs:comment "Class to represent the weather stations placed at a latitude and longitude."@en ;
+              rdfs:label "StationMeteo"@fr ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A station for taking, recording, and reporting meteorological observations"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tempete
 :Tempete rdf:type owl:Class ;
          rdfs:subClassOf :PhenomeneMeteoExtreme ;
          rdfs:label "Storm"@en ,
-                    "Tempete"@fr .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeNeige
-:TempeteDeNeige rdf:type owl:Class ;
-                rdfs:subClassOf :Tempete ;
-                rdfs:label "Snowstorm"@en ,
-                           "TempeteDeNeige"@fr .
+                    "Tempete"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "A violent disturbance of the atmosphere with strong winds and usually rain, thunder, lightning, or snow."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeSable
 :TempeteDeSable rdf:type owl:Class ;
                 rdfs:subClassOf :Tempete ;
                 rdfs:label "Sandstorm"@en ,
-                           "TempeteDeSable"@fr .
+                           "TempeteDeSable"@fr ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A storm of wind, carrying with it clouds of sand"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempèteDeGrèle
 :TempèteDeGrèle rdf:type owl:Class ;
                 rdfs:subClassOf :Tempete ;
                 rdfs:label "Hailstrom"@en ,
-                           "TempèteDeGrèle"@fr .
+                           "TempèteDeGrèle"@fr ;
+                <http://www.w3.org/2004/02/skos/core#definition> "A sudden heavy fall of hail"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tonerre
 :Tonerre rdf:type owl:Class ;
-         rdfs:subClassOf :Précipitations ;
+         rdfs:subClassOf :Phenomene_Meteo ;
          rdfs:label "Thunder"@en ,
-                    "Tonnerre"@fr .
+                    "Tonnerre"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "The sound that follows a flash of lightning and is caused by sudden expansion of the air in the path of the electrical discharge"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tornade
 :Tornade rdf:type owl:Class ;
          rdfs:subClassOf :PhenomeneMeteoExtreme ;
          rdfs:label "Tornade"@fr ,
-                    "Tornado"@en .
+                    "Tornado"@en ;
+         <http://www.w3.org/2004/02/skos/core#definition> "A very strong revolving wind that can cause a great deal of damage"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Unit
-:Unit rdf:type owl:Class .
+:Unit rdf:type owl:Class ;
+      rdfs:label "unit"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "A standard measure that is used to compare an amount"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vent
@@ -613,17 +643,23 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hectoPascal
 :hectoPascal rdf:type owl:Class ;
-             rdfs:subClassOf :Unit .
+             rdfs:subClassOf :Unit ;
+             rdfs:label "Hectopascal"@en ,
+                        "Unit of measurement of pressure worth one hundred pascals (symbol hPa)."@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#km/h
 <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#km/h> rdf:type owl:Class ;
-                                                                           rdfs:subClassOf :Unit .
+                                                                           rdfs:subClassOf :Unit ;
+                                                                           rdfs:label "km/h"@en ,
+                                                                                      "unit to measure speed"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s
 <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf :Unit .
+                                                                          rdfs:subClassOf :Unit ;
+                                                                          rdfs:label "m/s"@en ;
+                                                                          <http://www.w3.org/2004/02/skos/core#definition> "unit to measure speed"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

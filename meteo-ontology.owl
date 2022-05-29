@@ -7,6 +7,7 @@
 @base <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies> .
 
 <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies> rdf:type owl:Ontology ;
+                                                                       owl:imports <http://www.w3.org/2006/time#2016> ;
                                                                        rdfs:comment "An ontology to describe meteo" .
 
 #################################################################
@@ -298,7 +299,9 @@
 :Lieu rdf:type owl:Class ;
       owl:disjointWith :MesureMeteo ,
                        :MesurePhysique ,
-                       :Unit .
+                       :Unit ;
+      rdfs:label "Lieu"@fr ,
+                 "Place"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lieu-Dit

@@ -29,70 +29,94 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDirectionVent
 :aPourDirectionVent rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :MesureMeteo .
+                    rdfs:domain :MesureMeteo ;
+                    rdfs:label "aPourDirectionVent"@fr ,
+                               "hasWindDirection"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourLieuDit
 :aPourLieuDit rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:label "aPourLieuDit"@fr ,
+                         "hasHamlet"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPrécipitation
 :aPourPrécipitation rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty .
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:label "aPourPrécipitation"@fr ,
+                               "hasPrecipitation"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourStationMétéo
 :aPourStationMétéo rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty ;
                    rdfs:domain :MesureMeteo ;
-                   rdfs:range :StationMeteo .
+                   rdfs:range :StationMeteo ;
+                   rdfs:label "aPourStationMétéo"@fr ,
+                              "hasWeatherStation"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnité
 :aPourUnité rdf:type owl:ObjectProperty ;
             owl:inverseOf :mesureLaGrandeurPhysique ;
             rdfs:domain :MesurePhysique ;
-            rdfs:range :Unit .
+            rdfs:range :Unit ;
+            rdfs:label "aPourUnité"@fr ,
+                       "hasUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéHumidité
 :aPourUnitéHumidité rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :aPourUnité .
+                    rdfs:subPropertyOf :aPourUnité ;
+                    rdfs:label "aPourUnitéHumidité"@fr ,
+                               "hasHumidityUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéPression
 :aPourUnitéPression rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :aPourUnité .
+                    rdfs:subPropertyOf :aPourUnité ;
+                    rdfs:label "aPourUnitéPression"@fr ,
+                               "hasPressionUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéTempérature
 :aPourUnitéTempérature rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :aPourUnité .
+                       rdfs:subPropertyOf :aPourUnité ;
+                       rdfs:label "aPourUnitéTempérature"@fr ,
+                                  "hasTemperatureUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéVitesse
 :aPourUnitéVitesse rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :aPourUnité .
+                   rdfs:subPropertyOf :aPourUnité ;
+                   rdfs:label "aPourUnitéVitesse"@fr ,
+                              "hasSpeedUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourVitesseVent
 :aPourVitesseVent rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain :MesureVitesse .
+                  rdfs:domain :MesureVitesse ;
+                  rdfs:label "aPourVitesseVent"@fr ,
+                             "hasWindSpeed"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#altitude
 :altitude rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
           rdfs:domain :PhenomeneMeteoExtreme ;
-          rdfs:range :Précipitations .
+          rdfs:range :Précipitations ;
+          rdfs:label "altitude"@en ,
+                     "altitude"@fr .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#correspondAuLieu
 :correspondAuLieu rdf:type owl:ObjectProperty ;
                   rdfs:domain :MesureMeteo ;
-                  rdfs:range :Lieu .
+                  rdfs:range :Lieu ;
+                  rdfs:label "correspondAuLieu"@fr ,
+                             "correspondToThePlace"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#estDansLaCommune
@@ -133,19 +157,25 @@
            rdfs:subPropertyOf owl:topObjectProperty ;
            rdfs:domain :Commune ,
                        :Lieu-Dit ,
-                       :StationMeteo .
+                       :StationMeteo ;
+           rdfs:label "longitude"@en ,
+                      "longitude"@fr .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#mesureLaGrandeurPhysique
 :mesureLaGrandeurPhysique rdf:type owl:ObjectProperty ;
                           rdfs:domain :Unit ;
-                          rdfs:range :MesurePhysique .
+                          rdfs:range :MesurePhysique ;
+                          rdfs:label "measure"@en ,
+                                     "mesureLaGrandeurPhysique"@fr .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#temperature
 :temperature rdf:type owl:ObjectProperty ;
              rdfs:domain :MesureMeteo ;
-             rdfs:range :MesureTemperature .
+             rdfs:range :MesureTemperature ;
+             rdfs:label "temperature"@en ,
+                        "temperature"@fr .
 
 
 #################################################################
@@ -177,36 +207,16 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourValeur
 :aPourValeur rdf:type owl:DatatypeProperty ;
-             rdfs:range xsd:double .
+             rdfs:range xsd:double ;
+             rdfs:label "aPourValeur"@fr ,
+                        "hasValue"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#commentaire
 :commentaire rdf:type owl:DatatypeProperty ;
-             rdfs:range xsd:string .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeur
-:valeur rdf:type owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeurAngle
-:valeurAngle rdf:type owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeurHumidité
-:valeurHumidité rdf:type owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeurPression
-:valeurPression rdf:type owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeurTempérature
-:valeurTempérature rdf:type owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#valeurVitesse
-:valeurVitesse rdf:type owl:DatatypeProperty .
+             rdfs:range xsd:string ;
+             rdfs:label "commentaire"@fr ,
+                        "commentary"@en .
 
 
 #################################################################
@@ -391,8 +401,6 @@
              owl:disjointWith :MesurePhysique ,
                               :Unit ;
              owl:hasKey ( :aPourStationMétéo
-                        ) ,
-                        ( :aPourDate
                         ) ;
              rdfs:label "MesureMeteo"@fr ,
                         "WeatherMeasurement"@en ;

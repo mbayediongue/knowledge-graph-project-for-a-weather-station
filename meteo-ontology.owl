@@ -28,8 +28,10 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDirectionVent
 :aPourDirectionVent rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdfs:domain :MesureMeteo .
+                    rdfs:subPropertyOf :hasMeteoObservation ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:domain :MesureMeteo ;
+                    rdfs:range :WindDirectionValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourLieuDit
@@ -37,9 +39,18 @@
               rdfs:subPropertyOf owl:topObjectProperty .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPluviometrie
+:aPourPluviometrie rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :aPourPrécipitation ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:range :RainValuePartition .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPrécipitation
 :aPourPrécipitation rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty .
+                    rdfs:subPropertyOf :hasMeteoObservation ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:range :SnowLevelValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourStationMétéo
@@ -78,8 +89,9 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourVitesseVent
 :aPourVitesseVent rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf owl:topObjectProperty ;
-                  rdfs:domain :MesureVitesse .
+                  rdfs:subPropertyOf :hasMeteoObservation ;
+                  rdfs:domain :MesureVitesse ;
+                  rdfs:range :WindSpeedValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#altitude
@@ -120,6 +132,35 @@
 :estDansLeLieu rdf:type owl:ObjectProperty .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasMeteoObservation
+:hasMeteoObservation rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasSnowLevel
+:hasSnowLevel rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :aPourPrécipitation .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasSunshine
+:hasSunshine rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasMeteoObservation ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:range :SunShineValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasTemperature
+:hasTemperature rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasMeteoObservation ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:range :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hasVisibility
+:hasVisibility rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :hasMeteoObservation .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#latitude
 :latitude rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf owl:topObjectProperty ;
@@ -147,6 +188,11 @@
 :temperature rdf:type owl:ObjectProperty ;
              rdfs:domain :MesureMeteo ;
              rdfs:range :MesureTemperature .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdf:type owl:FunctionalProperty ;
+                      rdfs:range :VisibilityValuePartition .
 
 
 #################################################################
@@ -216,17 +262,73 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Anticyclone
 :Anticyclone rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :aPourVitesseVent ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :HighWindSpeed
+                                                                     :VeryHighWindSpeed
+                                                                   )
+                                                     ]
+                                 ] ;
              rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Blizzard
 :Blizzard rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :aPourVitesseVent ;
+                                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                           owl:unionOf ( :HighWindSpeed
+                                                                                         :VeryHighWindSpeed
+                                                                                       )
+                                                                         ]
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasSnowLevel ;
+                                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                           owl:unionOf ( :HighSnowLevel
+                                                                                         :VeryHighSnowLevel
+                                                                                       )
+                                                                         ]
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasVisibility ;
+                                                       owl:allValuesFrom :VeryLowVisibility
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
           rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Canicule
 :Canicule rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :aPourPluviometrie ;
+                                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                           owl:unionOf ( :LowRain
+                                                                                         :VeryLowRain
+                                                                                       )
+                                                                         ]
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasTemperature ;
+                                                       owl:allValuesFrom :VeryHighTemperature
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
           rdfs:subClassOf :PhenomeneMeteoExtreme .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#CloudSunny
+:CloudSunny rdf:type owl:Class ;
+            rdfs:subClassOf :SunShineValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Clowdy
+:Clowdy rdf:type owl:Class ;
+        rdfs:subClassOf :SunShineValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Commune
@@ -239,6 +341,14 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Cyclone
 :Cyclone rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( :Ouragan
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :aPourVitesseVent ;
+                                               owl:allValuesFrom :VeryHighWindSpeed
+                                             ]
+                                           )
+                             ] ;
          rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
@@ -270,6 +380,11 @@
                   rdfs:comment "Classe pour décrire un état métérologique" .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#East
+:East rdf:type owl:Class ;
+      rdfs:subClassOf :WindDirectionValuePartition .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ensoleillé
 :Ensoleillé rdf:type owl:Class ;
             rdfs:subClassOf :EtatDuCiel .
@@ -288,6 +403,31 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Grèle
 :Grèle rdf:type owl:Class ;
        rdfs:subClassOf :Précipitations .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#HeavyRain
+:HeavyRain rdf:type owl:Class ;
+           rdfs:subClassOf :RainValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#HighSnowLevel
+:HighSnowLevel rdf:type owl:Class ;
+               rdfs:subClassOf :SnowLevelValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#HighTemperature
+:HighTemperature rdf:type owl:Class ;
+                 rdfs:subClassOf :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#HighVisibility
+:HighVisibility rdf:type owl:Class ;
+                rdfs:subClassOf :VisibilityValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#HighWindSpeed
+:HighWindSpeed rdf:type owl:Class ;
+               rdfs:subClassOf :WindSpeedValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Jour
@@ -311,6 +451,26 @@
           owl:hasKey ( :latitude
                        :longitude
                      ) .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#LowRain
+:LowRain rdf:type owl:Class ;
+         rdfs:subClassOf :RainValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#LowSnowLevel
+:LowSnowLevel rdf:type owl:Class ;
+              rdfs:subClassOf :SnowLevelValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#LowTemperature
+:LowTemperature rdf:type owl:Class ;
+                rdfs:subClassOf :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#LowVisibility
+:LowVisibility rdf:type owl:Class ;
+               rdfs:subClassOf :VisibilityValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lumière
@@ -387,6 +547,36 @@
        rdfs:subClassOf :Précipitations .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#NormalRain
+:NormalRain rdf:type owl:Class ;
+            rdfs:subClassOf :RainValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#NormalSunshine
+:NormalSunshine rdf:type owl:Class ;
+                rdfs:subClassOf :SunShineValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#NormalTemperature
+:NormalTemperature rdf:type owl:Class ;
+                   rdfs:subClassOf :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#NormalVisibility
+:NormalVisibility rdf:type owl:Class ;
+                  rdfs:subClassOf :VisibilityValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#NormalWindSpeed
+:NormalWindSpeed rdf:type owl:Class ;
+                 rdfs:subClassOf :WindSpeedValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#North
+:North rdf:type owl:Class ;
+       rdfs:subClassOf :WindDirectionValuePartition .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nuageux
 :Nuageux rdf:type owl:Class ;
          rdfs:subClassOf :EtatDuCiel .
@@ -409,11 +599,34 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
 :Orage rdf:type owl:Class ;
+       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :aPourPluviometrie ;
+                                                    owl:allValuesFrom :VeryHeavyRain
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :aPourVitesseVent ;
+                                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                        owl:unionOf ( :HighWindSpeed
+                                                                                      :VeryHighWindSpeed
+                                                                                    )
+                                                                      ]
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ;
        rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ouragan
 :Ouragan rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( :Cyclone
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :aPourVitesseVent ;
+                                               owl:allValuesFrom :VeryHighWindSpeed
+                                             ]
+                                           )
+                             ] ;
          rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
@@ -457,6 +670,20 @@
               rdfs:subClassOf :PhenomeneMeteoExtreme .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RainValuePartition
+:RainValuePartition rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:unionOf ( :HeavyRain
+                                                        :LowRain
+                                                        :NormalRain
+                                                        :VeryHeavyRain
+                                                        :VeryLowRain
+                                                      )
+                                        ] ;
+                    rdfs:subClassOf :ValuePartition ;
+                    rdfs:comment "The class value partition enable to have a qualitative description of a quantitative variable. For example, according to the quantity of water that has fallen, we can qualify a rainfall to be: 'VeryHeavyRain', 'HeavyRain', 'NormalRain' , 'LowRain', 'VeryLowRain'." .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RayonnementSolaire
 :RayonnementSolaire rdf:type owl:Class ;
                     rdfs:subClassOf :ObservationMeteo .
@@ -465,6 +692,16 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Region
 :Region rdf:type owl:Class ;
         rdfs:subClassOf :Lieu .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#SnowLevelValuePartition
+:SnowLevelValuePartition rdf:type owl:Class ;
+                         rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#South
+:South rdf:type owl:Class ;
+       rdfs:subClassOf :WindDirectionValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#StationMeteo
@@ -476,6 +713,21 @@
               rdfs:comment "Classe pour représenté les stations météos placées à une latitude et longitude déterminé." .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#SunShineValuePartition
+:SunShineValuePartition rdf:type owl:Class ;
+                        rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Sunny
+:Sunny rdf:type owl:Class ;
+       rdfs:subClassOf :SunShineValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TemperatureValuePartition
+:TemperatureValuePartition rdf:type owl:Class ;
+                           rdfs:subClassOf :ValuePartition .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Tempete
 :Tempete rdf:type owl:Class ;
          rdfs:subClassOf :PhenomeneMeteoExtreme .
@@ -483,12 +735,39 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeNeige
 :TempeteDeNeige rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :aPourVitesseVent ;
+                                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( :HighWindSpeed
+                                                                                               :VeryHighWindSpeed
+                                                                                             )
+                                                                               ]
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasSnowLevel ;
+                                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( :HighSnowLevel
+                                                                                               :VeryHighSnowLevel
+                                                                                             )
+                                                                               ]
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
                 rdfs:subClassOf :Tempete .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeSable
 :TempeteDeSable rdf:type owl:Class ;
-                rdfs:subClassOf :Tempete .
+                rdfs:subClassOf :Tempete ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :aPourVitesseVent ;
+                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( :HighWindSpeed
+                                                                    :VeryHighWindSpeed
+                                                                  )
+                                                    ]
+                                ] .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempèteDeGrèle
@@ -510,9 +789,78 @@
 :Unit rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ValuePartition
+:ValuePartition rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vent
 :Vent rdf:type owl:Class ;
       rdfs:subClassOf :ObservationMeteo .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryHeavyRain
+:VeryHeavyRain rdf:type owl:Class ;
+               rdfs:subClassOf :RainValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryHighSnowLevel
+:VeryHighSnowLevel rdf:type owl:Class ;
+                   rdfs:subClassOf :SnowLevelValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryHighTemperature
+:VeryHighTemperature rdf:type owl:Class ;
+                     rdfs:subClassOf :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryHighWindSpeed
+:VeryHighWindSpeed rdf:type owl:Class ;
+                   rdfs:subClassOf :WindSpeedValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryLowRain
+:VeryLowRain rdf:type owl:Class ;
+             rdfs:subClassOf :RainValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryLowSnowLevel
+:VeryLowSnowLevel rdf:type owl:Class ;
+                  rdfs:subClassOf :SnowLevelValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryLowTemperature
+:VeryLowTemperature rdf:type owl:Class ;
+                    rdfs:subClassOf :TemperatureValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VeryLowVisibility
+:VeryLowVisibility rdf:type owl:Class ;
+                   rdfs:subClassOf :VisibilityValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VerySunny
+:VerySunny rdf:type owl:Class ;
+           rdfs:subClassOf :SunShineValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VisibilityValuePartition
+:VisibilityValuePartition rdf:type owl:Class ;
+                          rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#West
+:West rdf:type owl:Class ;
+      rdfs:subClassOf :WindDirectionValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#WindDirectionValuePartition
+:WindDirectionValuePartition rdf:type owl:Class ;
+                             rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#WindSpeedValuePartition
+:WindSpeedValuePartition rdf:type owl:Class ;
+                         rdfs:subClassOf :ValuePartition .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#hectoPascal
@@ -528,6 +876,86 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s
 <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s> rdf:type owl:Class ;
                                                                           rdfs:subClassOf :Unit .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CloudSunny
+                :Clowdy
+                :NormalSunshine
+                :Sunny
+                :VerySunny
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :East
+                :North
+                :South
+                :West
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HeavyRain
+                :LowRain
+                :NormalRain
+                :VeryHeavyRain
+                :VeryLowRain
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HighSnowLevel
+                :LowSnowLevel
+                :VeryHighSnowLevel
+                :VeryLowSnowLevel
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HighTemperature
+                :LowTemperature
+                :NormalTemperature
+                :VeryHighTemperature
+                :VeryLowTemperature
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HighVisibility
+                :LowVisibility
+                :NormalVisibility
+                :VeryLowVisibility
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HighWindSpeed
+                :NormalWindSpeed
+                :VeryHighWindSpeed
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :SnowLevelValuePartition
+                :SunShineValuePartition
+                :TemperatureValuePartition
+                :VisibilityValuePartition
+                :WindDirectionValuePartition
+                :WindSpeedValuePartition
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,1734 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie#"
+     xml:base="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie/1.0.0"/>
+        <owl:imports rdf:resource="http://www.w3.org/2006/time#2016"/>
+        <rdfs:comment>An ontology to describe meteo</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#cdt:ucum -->
+
+
+    <rdfs:Datatype rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#cdt:ucum"/>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#cdt:ucumunit -->
+
+
+    <rdfs:Datatype rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#cdt:ucumunit"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+        <rdfs:label xml:lang="fr">aPourDirectionVent</rdfs:label>
+        <rdfs:label xml:lang="en">hasWindDirection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourLieuDit -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourLieuDit">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="fr">aPourLieuDit</rdfs:label>
+        <rdfs:label xml:lang="en">hasHamlet</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPluviometrie -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPluviometrie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+        <rdfs:label xml:lang="fr">aPourPrécipitation</rdfs:label>
+        <rdfs:label xml:lang="en">hasPrecipitation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourStationMétéo -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourStationMétéo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo"/>
+        <rdfs:label xml:lang="fr">aPourStationMétéo</rdfs:label>
+        <rdfs:label xml:lang="en">hasWeatherStation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#mesureLaGrandeurPhysique"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="fr">aPourUnité</rdfs:label>
+        <rdfs:label xml:lang="en">hasUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéHumidité -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéHumidité">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité"/>
+        <rdfs:label xml:lang="fr">aPourUnitéHumidité</rdfs:label>
+        <rdfs:label xml:lang="en">hasHumidityUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéPression -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéPression">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hectoPascal"/>
+        <rdfs:label xml:lang="fr">aPourUnitéPression</rdfs:label>
+        <rdfs:label xml:lang="en">hasPressionUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéTempérature -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéTempérature">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DegréCelcius"/>
+        <rdfs:label xml:lang="fr">aPourUnitéTempérature</rdfs:label>
+        <rdfs:label xml:lang="en">hasTemperatureUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéVitesse -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéVitesse">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#km/h"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#m/s"/>
+        <rdfs:label xml:lang="fr">aPourUnitéVitesse</rdfs:label>
+        <rdfs:label xml:lang="en">hasSpeedUnit</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureVitesse"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition"/>
+        <rdfs:label xml:lang="fr">aPourVitesseVent</rdfs:label>
+        <rdfs:label xml:lang="en">hasWindSpeed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#altitude -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#altitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations"/>
+        <rdfs:label xml:lang="en">altitude</rdfs:label>
+        <rdfs:label xml:lang="fr">altitude</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#correspondAuLieu -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#correspondAuLieu">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:label xml:lang="fr">correspondAuLieu</rdfs:label>
+        <rdfs:label xml:lang="en">correspondToThePlace</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLaCommune -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLaCommune">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeLieu"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune"/>
+        <rdfs:label xml:lang="en">hasForTown</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLaRegion -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLaRegion">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeLieu"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region"/>
+        <rdfs:label xml:lang="en">hasForRegion</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeDepartement -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeDepartement">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeLieu"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Departement"/>
+        <rdfs:label xml:lang="en">hasForDepartment</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeLieu -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#estDansLeLieu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSunshine -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSunshine">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasTemperature -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasTemperature">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasVisibility -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasVisibility">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#latitude -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#latitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo"/>
+        <rdfs:label xml:lang="en">longitude</rdfs:label>
+        <rdfs:label xml:lang="fr">longitude</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#mesureLaGrandeurPhysique -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#mesureLaGrandeurPhysique">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <rdfs:label xml:lang="en">measure</rdfs:label>
+        <rdfs:label xml:lang="fr">mesureLaGrandeurPhysique</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#temperature -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#temperature">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureTemperature"/>
+        <rdfs:label xml:lang="en">temperature</rdfs:label>
+        <rdfs:label xml:lang="fr">temperature</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDateCreation -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDateCreation">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDate"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDatePrevisionnelle -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDatePrevisionnelle">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDate"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:label xml:lang="fr">aPourValeur</rdfs:label>
+        <rdfs:label xml:lang="en">hasValue</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#commentaire -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#commentaire">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="fr">commentaire</rdfs:label>
+        <rdfs:label xml:lang="en">commentary</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Anticyclone -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Anticyclone">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo"/>
+        <rdfs:label xml:lang="en">Anticyclone</rdfs:label>
+        <rdfs:label xml:lang="fr">Anticyclone</rdfs:label>
+        <skos:definition xml:lang="en">An area of high atmospheric pressure that causes calm weather</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Blizzard -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Blizzard">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighSnowLevel"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighSnowLevel"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasVisibility"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowVisibility"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+        <rdfs:label xml:lang="en">Blizzard</rdfs:label>
+        <rdfs:label xml:lang="fr">Blizzard</rdfs:label>
+        <skos:definition xml:lang="en">A snow storm with no visibility for people inside</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Canicule -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Canicule">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPluviometrie"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowRain"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowRain"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasTemperature"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighTemperature"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:label xml:lang="fr">Canicule</rdfs:label>
+        <rdfs:label xml:lang="en">Heatwave</rdfs:label>
+        <skos:definition xml:lang="en">A period of time such as a few weeks when the weather is much hotter than usual</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#CloudSunny -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#CloudSunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Clowdy -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Clowdy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Departement"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region"/>
+        <rdfs:label xml:lang="fr">Commune</rdfs:label>
+        <rdfs:label xml:lang="en">Town</rdfs:label>
+        <skos:definition xml:lang="en">A built-up area with a name, defined boundaries, and local government.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Cyclone -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Cyclone">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Ouragan"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:label xml:lang="en">Cyclone</rdfs:label>
+        <rdfs:label xml:lang="fr">Cyclone</rdfs:label>
+        <skos:definition xml:lang="en">Wind moving in a circular direction towards an area of low atmospheric pressure</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DegréCelcius -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DegréCelcius">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="en">CelsiusDegree</rdfs:label>
+        <skos:definition xml:lang="en">Unit that describes an angle</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Departement -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Departement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region"/>
+        <rdfs:label xml:lang="fr">Département</rdfs:label>
+        <rdfs:label xml:lang="en">FrenchDepartment</rdfs:label>
+        <skos:definition xml:lang="en">Level of government under the national level, between the administrative regions and the communes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Depression -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Depression">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo"/>
+        <rdfs:label xml:lang="en">Depression</rdfs:label>
+        <rdfs:label xml:lang="fr">Depression</rdfs:label>
+        <skos:definition xml:lang="en">An area of low pressure in the atmosphere</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DescriptionMeteo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DescriptionMeteo">
+        <rdfs:label xml:lang="fr">DescriptionMeteo</rdfs:label>
+        <rdfs:label xml:lang="en">WeatherDescription</rdfs:label>
+        <skos:definition xml:lang="fr">Classe pour décrire un état métérologique</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#East -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#East">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Ensoleillé -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Ensoleillé">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#EtatDuCiel"/>
+        <rdfs:label xml:lang="fr">Ensoleillé</rdfs:label>
+        <rdfs:label xml:lang="en">Sunny</rdfs:label>
+        <skos:definition xml:lang="en">Sky with almost no clouds</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#EtatDuCiel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#EtatDuCiel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DescriptionMeteo"/>
+        <rdfs:label xml:lang="fr">EtatDuCiel</rdfs:label>
+        <rdfs:label xml:lang="en">SkyState</rdfs:label>
+        <skos:definition xml:lang="en">Description of the meteo by the density of clouds</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#FaibleEclaircie -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#FaibleEclaircie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#EtatDuCiel"/>
+        <rdfs:label xml:lang="fr">FaibleEclaircie</rdfs:label>
+        <rdfs:label xml:lang="en">WeakThinning</rdfs:label>
+        <skos:definition xml:lang="en">sky with clouds and a few rays of sunlight</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Grèle -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Grèle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations"/>
+        <rdfs:label xml:lang="fr">Grèle</rdfs:label>
+        <rdfs:label xml:lang="en">Hail</rdfs:label>
+        <skos:definition xml:lang="en">Pellets of frozen rain which fall in showers from cumulonimbus clouds</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HeavyRain -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HeavyRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighSnowLevel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighSnowLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighVisibility -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighVisibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Jour -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Jour">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lumière"/>
+        <rdfs:label xml:lang="en">Daylight</rdfs:label>
+        <rdfs:label xml:lang="fr">Jour</rdfs:label>
+        <skos:definition xml:lang="en">Period when there is natural light from the sun</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#KelvinDegree -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#KelvinDegree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="fr">Lieu</rdfs:label>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+        <skos:definition xml:lang="en">a position, location, or area</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#latitude"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="en">Hamlet</rdfs:label>
+        <rdfs:label xml:lang="fr">Lieu-dit</rdfs:label>
+        <skos:definition xml:lang="en">A small settlement, generally one smaller than a village.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowRain -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowSnowLevel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowSnowLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowVisibility -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowVisibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lumière -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lumière">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DescriptionMeteo"/>
+        <rdfs:label xml:lang="en">LightPeriodDay</rdfs:label>
+        <rdfs:label xml:lang="fr">LumièreJournée</rdfs:label>
+        <skos:definition xml:lang="en">Period of the day defined by the lightning of celestial bodies</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureAngle -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureAngle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <rdfs:label xml:lang="en">AngelMeasurement</rdfs:label>
+        <rdfs:label xml:lang="fr">MesureAngle</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure an angle</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureDirection -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureDirection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <rdfs:label xml:lang="en">DirectionMeasurement</rdfs:label>
+        <rdfs:label xml:lang="fr">MesureDirection</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure a direction</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureHumidité -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureHumidité">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéHumidité"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="en">HumidityMeasurement</rdfs:label>
+        <rdfs:label xml:lang="fr">MesureHumidité</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure humidity</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnité"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="fr">MesurePhysique</rdfs:label>
+        <rdfs:label xml:lang="en">PhysicsMeasurement</rdfs:label>
+        <skos:definition xml:lang="en">the size, weight, level, etc. of sth shown in units used for measuring</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePression -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePression">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéPression"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="fr">MesurePression</rdfs:label>
+        <rdfs:label xml:lang="en">PressionMeasurement</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure pression</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourUnitéTempérature"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="fr">MesureTemperature</rdfs:label>
+        <rdfs:label xml:lang="en">TemperatureMeasurement</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure temperature</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureVitesse -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureVitesse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="fr">MesureVitesse</rdfs:label>
+        <rdfs:label xml:lang="en">SpeedMeasurement</rdfs:label>
+        <skos:definition xml:lang="en">Data that have been recorded by a device in order to measure speed</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Neige -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Neige">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations"/>
+        <rdfs:label xml:lang="fr">Neige</rdfs:label>
+        <rdfs:label xml:lang="en">Snow</rdfs:label>
+        <skos:definition xml:lang="en">Atmospheric water vapour frozen into ice crystals and falling in light white flakes or lying on the ground as a white layer</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalRain -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalSunshine -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalSunshine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalVisibility -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalVisibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalWindSpeed -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalWindSpeed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#North -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#North">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nuageux -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nuageux">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#EtatDuCiel"/>
+        <rdfs:label xml:lang="en">Cloudy</rdfs:label>
+        <rdfs:label xml:lang="fr">Nuageux</rdfs:label>
+        <skos:definition xml:lang="en">sky with sunlight absorded by clouds</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nuit -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nuit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lumière"/>
+        <rdfs:label xml:lang="en">Dark</rdfs:label>
+        <rdfs:label xml:lang="fr">Nuit</rdfs:label>
+        <skos:definition xml:lang="en">Period when there is no light from the sun</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nébulosité -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nébulosité">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement"/>
+        <rdfs:label xml:lang="en">Nebulosity</rdfs:label>
+        <rdfs:label xml:lang="fr">Nébulosité</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourStationMétéo"/>
+        </owl:hasKey>
+        <rdfs:label xml:lang="fr">ObservationMeteo</rdfs:label>
+        <rdfs:label xml:lang="en">WeatherObservation</rdfs:label>
+        <skos:definition xml:lang="en">Set of data that allow to define a weather at a given time</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Orage -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Orage">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPluviometrie"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHeavyRain"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+        <rdfs:label xml:lang="fr">Orage</rdfs:label>
+        <rdfs:label xml:lang="en">Thunderstorm</rdfs:label>
+        <skos:definition xml:lang="en">A storm in which there is thunder</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Ouragan -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Ouragan">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Cyclone"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+        <rdfs:label xml:lang="en">Hurricane</rdfs:label>
+        <rdfs:label xml:lang="fr">Ouragan</rdfs:label>
+        <skos:definition xml:lang="en">A large destructive storm that forms over the ocean</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pays -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pays">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+        <rdfs:label xml:lang="fr">Pays</rdfs:label>
+        <skos:definition xml:lang="en">An area of land that has its own government, army.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo"/>
+        <rdfs:label xml:lang="en">ExtremWeatherPhenomena</rdfs:label>
+        <rdfs:label xml:lang="fr">PhenomeneMeteoExtreme</rdfs:label>
+        <skos:definition xml:lang="en">Wheather phenomena that can deals a lot of human or material dommages.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo">
+        <rdfs:label xml:lang="fr">Phenomene_Meteo</rdfs:label>
+        <rdfs:label xml:lang="en">WeatherPhenomena</rdfs:label>
+        <skos:definition xml:lang="en">Natural events that occur as a result of one or a combination of the water cycle, pressure systems and the Coriolis effect.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pluie -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pluie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations"/>
+        <rdfs:label xml:lang="fr">Pluie</rdfs:label>
+        <rdfs:label xml:lang="en">Rain</rdfs:label>
+        <skos:definition xml:lang="en">The condensed moisture of the atmosphere falling visibly in separate drops</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pluviométrie -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pluviométrie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement"/>
+        <rdfs:label xml:lang="fr">Pluviométrie</rdfs:label>
+        <rdfs:label xml:lang="en">Rainfall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo">
+        <rdfs:label xml:lang="fr">PrevisionMeteo</rdfs:label>
+        <rdfs:label xml:lang="en">Set of computed data that is used to describe a future meteo state</rdfs:label>
+        <rdfs:label xml:lang="en">WeatherPrevision</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo"/>
+        <rdfs:label xml:lang="en">Precipitation</rdfs:label>
+        <rdfs:label xml:lang="fr">Précipitations</rdfs:label>
+        <skos:definition xml:lang="en">water that falls from the clouds towards the ground</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RafaleDeVent -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RafaleDeVent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:label xml:lang="en">GustOfWind</rdfs:label>
+        <rdfs:label xml:lang="fr">RafaleDeVent</rdfs:label>
+        <skos:definition xml:lang="en">Strong air current, sudden and violent.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HeavyRain"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowRain"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalRain"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHeavyRain"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowRain"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+        <rdfs:comment>The class value partition enable to have a qualitative description of a quantitative variable. For example, according to the quantity of water that has fallen, we can qualify a rainfall to be: &apos;VeryHeavyRain&apos;, &apos;HeavyRain&apos;, &apos;NormalRain&apos; , &apos;LowRain&apos;, &apos;VeryLowRain&apos;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RayonnementSolaire -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RayonnementSolaire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement"/>
+        <rdfs:label xml:lang="fr">RayonnementSolaire</rdfs:label>
+        <rdfs:label xml:lang="en">SolarRadiation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu"/>
+        <rdfs:label xml:lang="en">Region</rdfs:label>
+        <rdfs:label xml:lang="fr">Region</rdfs:label>
+        <skos:definition xml:lang="en">A particular area or part of the world, or any of the large official areas into which a country is divided.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#South -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#South">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#latitude"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude"/>
+        </owl:hasKey>
+        <rdfs:comment xml:lang="en">Class to represent the weather stations placed at a latitude and longitude.</rdfs:comment>
+        <rdfs:label xml:lang="fr">StationMeteo</rdfs:label>
+        <skos:definition xml:lang="en">A station for taking, recording, and reporting meteorological observations</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Sunny -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Sunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:label xml:lang="en">Storm</rdfs:label>
+        <rdfs:label xml:lang="fr">Tempete</rdfs:label>
+        <skos:definition xml:lang="en">A violent disturbance of the atmosphere with strong winds and usually rain, thunder, lightning, or snow.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempeteDeNeige -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempeteDeNeige">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighSnowLevel"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighSnowLevel"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempeteDeSable -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempeteDeSable">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourVitesseVent"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+        <rdfs:label xml:lang="en">Sandstorm</rdfs:label>
+        <rdfs:label xml:lang="fr">TempeteDeSable</rdfs:label>
+        <skos:definition xml:lang="en">A storm of wind, carrying with it clouds of sand</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempèteDeGrèle -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TempèteDeGrèle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tempete"/>
+        <rdfs:label xml:lang="en">Hailstrom</rdfs:label>
+        <rdfs:label xml:lang="fr">TempèteDeGrèle</rdfs:label>
+        <skos:definition xml:lang="en">A sudden heavy fall of hail</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tonerre -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tonerre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Phenomene_Meteo"/>
+        <rdfs:label xml:lang="en">Thunder</rdfs:label>
+        <rdfs:label xml:lang="fr">Tonnerre</rdfs:label>
+        <skos:definition xml:lang="en">The sound that follows a flash of lightning and is caused by sudden expansion of the air in the path of the electrical discharge</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tornade -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Tornade">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme"/>
+        <rdfs:label xml:lang="fr">Tornade</rdfs:label>
+        <rdfs:label xml:lang="en">Tornado</rdfs:label>
+        <skos:definition xml:lang="en">A very strong revolving wind that can cause a great deal of damage</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit">
+        <rdfs:label xml:lang="en">unit</rdfs:label>
+        <skos:definition xml:lang="en">A standard measure that is used to compare an amount</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Vent -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Vent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement"/>
+        <rdfs:label xml:lang="fr">Vent</rdfs:label>
+        <rdfs:label xml:lang="en">Wind</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHeavyRain -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHeavyRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighSnowLevel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighSnowLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowRain -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowRain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RainValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowSnowLevel -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowSnowLevel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowTemperature -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowVisibility -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowVisibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VerySunny -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VerySunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WeatherMeasurement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesurePhysique"/>
+        <rdfs:comment xml:lang="fr">Classe qui correspond à ce qui peut être mesuré à un instant précis vis à vis de la météo: le vent, la luminosité,la pluviométrie,...</rdfs:comment>
+        <rdfs:label xml:lang="fr">MesureMeteo</rdfs:label>
+        <rdfs:label xml:lang="en">WeatherMeasurement</rdfs:label>
+        <skos:definition xml:lang="en">Measurement of a Meteoroligical data</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#West -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#West">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hectoPascal -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hectoPascal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="en">Hectopascal</rdfs:label>
+        <rdfs:label xml:lang="en">Unit of measurement of pressure worth one hundred pascals (symbol hPa).</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#km/h -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#km/h">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="en">km/h</rdfs:label>
+        <rdfs:label xml:lang="en">unit to measure speed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#m/s -->
+
+
+    <owl:Class rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#m/s">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Unit"/>
+        <rdfs:label xml:lang="en">m/s</rdfs:label>
+        <skos:definition xml:lang="en">unit to measure speed</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#CloudSunny"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Clowdy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalSunshine"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Sunny"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VerySunny"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#East"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#North"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#South"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#West"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HeavyRain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowRain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalRain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHeavyRain"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowRain"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighSnowLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowSnowLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighSnowLevel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowSnowLevel"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighTemperature"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowTemperature"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalTemperature"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighTemperature"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowTemperature"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighVisibility"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#LowVisibility"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalVisibility"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryLowVisibility"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#HighWindSpeed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#NormalWindSpeed"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VeryHighWindSpeed"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SunShineValuePartition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#TemperatureValuePartition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#VisibilityValuePartition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindDirectionValuePartition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#WindSpeedValuePartition"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

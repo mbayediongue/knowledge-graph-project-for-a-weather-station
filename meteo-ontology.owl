@@ -27,12 +27,13 @@
 #################################################################
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDirectionVent
-:aPourDirectionVent rdfs:subPropertyOf :hasCaracteristics ;
-                    rdfs:domain :MesureMeteo ;
-                    rdfs:label "aPourDirectionVent"@fr ,
-                               "hasWindDirection"@en ;
+:aPourDirectionVent rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :hasCaracteristics ;
                     rdf:type owl:FunctionalProperty ;
-                    rdfs:range :WindDirectionValuePartition .
+                    rdfs:domain :ObservationMeteo ;
+                    rdfs:range :WindDirectionValuePartition ;
+                    rdfs:label "aPourDirectionVent"@fr ,
+                               "hasWindDirection"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourLieuDit
@@ -50,17 +51,18 @@
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourPrécipitation
-:aPourPrécipitation rdfs:label "aPourPrécipitation"@fr ,
-                               "hasPrecipitation"@en ;
+:aPourPrécipitation rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :hasCaracteristics ;
                     rdf:type owl:FunctionalProperty ;
-                    rdfs:range :SnowLevelValuePartition .
+                    rdfs:range :SnowLevelValuePartition ;
+                    rdfs:label "aPourPrécipitation"@fr ,
+                               "hasPrecipitation"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourStationMétéo
 :aPourStationMétéo rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty ;
-                   rdfs:domain :MesureMeteo ;
+                   rdfs:domain :ObservationMeteo ;
                    rdfs:range :StationMeteo ;
                    rdfs:label "aPourStationMétéo"@fr ,
                               "hasWeatherStation"@en .
@@ -85,6 +87,7 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéPression
 :aPourUnitéPression rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :aPourUnité ;
+                    rdfs:domain :hectoPascal ;
                     rdfs:label "aPourUnitéPression"@fr ,
                                "hasPressionUnit"@en .
 
@@ -92,6 +95,7 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéTempérature
 :aPourUnitéTempérature rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :aPourUnité ;
+                       rdfs:domain :DegréCelcius ;
                        rdfs:label "aPourUnitéTempérature"@fr ,
                                   "hasTemperatureUnit"@en .
 
@@ -99,17 +103,19 @@
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourUnitéVitesse
 :aPourUnitéVitesse rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :aPourUnité ;
+                   rdfs:domain <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#km/h> ,
+                               <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#m/s> ;
                    rdfs:label "aPourUnitéVitesse"@fr ,
                               "hasSpeedUnit"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourVitesseVent
 :aPourVitesseVent rdf:type owl:ObjectProperty ;
-                  rdfs:domain :MesureVitesse ;
-                  rdfs:label "aPourVitesseVent"@fr ,
-                             "hasWindSpeed"@en ;
                   rdfs:subPropertyOf :hasCaracteristics ;
-                  rdfs:range :WindSpeedValuePartition .
+                  rdfs:domain :MesureVitesse ;
+                  rdfs:range :WindSpeedValuePartition ;
+                  rdfs:label "aPourVitesseVent"@fr ,
+                             "hasWindSpeed"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#altitude
@@ -123,7 +129,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#correspondAuLieu
 :correspondAuLieu rdf:type owl:ObjectProperty ;
-                  rdfs:domain :MesureMeteo ;
+                  rdfs:domain :ObservationMeteo ;
                   rdfs:range :Lieu ;
                   rdfs:label "correspondAuLieu"@fr ,
                              "correspondToThePlace"@en .
@@ -133,21 +139,24 @@
 :estDansLaCommune rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :estDansLeLieu ;
                   rdfs:domain :Lieu ;
-                  rdfs:range :Commune .
+                  rdfs:range :Commune ;
+                  rdfs:label "hasForTown"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#estDansLaRegion
 :estDansLaRegion rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :estDansLeLieu ;
                  rdfs:domain :Lieu ;
-                 rdfs:range :Region .
+                 rdfs:range :Region ;
+                 rdfs:label "hasForRegion"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#estDansLeDepartement
 :estDansLeDepartement rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :estDansLeLieu ;
                       rdfs:domain :Lieu ;
-                      rdfs:range :Departement .
+                      rdfs:range :Departement ;
+                      rdfs:label "hasForDepartment"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#estDansLeLieu
@@ -211,7 +220,7 @@
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#temperature
 :temperature rdf:type owl:ObjectProperty ;
-             rdfs:domain :MesureMeteo ;
+             rdfs:domain :ObservationMeteo ;
              rdfs:range :MesureTemperature ;
              rdfs:label "temperature"@en ,
                         "temperature"@fr .
@@ -229,7 +238,7 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDate
 :aPourDate rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :MesureMeteo ,
+           rdfs:domain :ObservationMeteo ,
                        :PrevisionMeteo ;
            rdfs:range xsd:dateTime .
 
@@ -237,7 +246,7 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#aPourDateCreation
 :aPourDateCreation rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf :aPourDate ;
-                   rdfs:domain :MesureMeteo ,
+                   rdfs:domain :ObservationMeteo ,
                                :PrevisionMeteo ;
                    rdfs:range xsd:dateTime .
 
@@ -269,10 +278,6 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Anticyclone
 :Anticyclone rdf:type owl:Class ;
-             rdfs:subClassOf :Phenomene_Meteo ;
-             rdfs:label "Anticyclone"@en ,
-                        "Anticyclone"@fr ;
-             <http://www.w3.org/2004/02/skos/core#definition> "An area of high atmospheric pressure that causes calm weather"@en ;
              owl:equivalentClass [ rdf:type owl:Restriction ;
                                    owl:onProperty :aPourVitesseVent ;
                                    owl:allValuesFrom [ rdf:type owl:Class ;
@@ -280,15 +285,15 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                                      :VeryHighWindSpeed
                                                                    )
                                                      ]
-                                 ] .
+                                 ] ;
+             rdfs:subClassOf :Phenomene_Meteo ;
+             rdfs:label "Anticyclone"@en ,
+                        "Anticyclone"@fr ;
+             <http://www.w3.org/2004/02/skos/core#definition> "An area of high atmospheric pressure that causes calm weather"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Blizzard
 :Blizzard rdf:type owl:Class ;
-          rdfs:subClassOf :Tempete ;
-          rdfs:label "Blizzard"@en ,
-                     "Blizzard"@fr ;
-          <http://www.w3.org/2004/02/skos/core#definition> "A snow storm"@en ;
           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                        owl:onProperty :aPourVitesseVent ;
                                                        owl:allValuesFrom [ rdf:type owl:Class ;
@@ -311,15 +316,15 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                      ]
                                                    ) ;
                                 rdf:type owl:Class
-                              ] .
+                              ] ;
+          rdfs:subClassOf :Tempete ;
+          rdfs:label "Blizzard"@en ,
+                     "Blizzard"@fr ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A snow storm with no visibility for people inside"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Canicule
 :Canicule rdf:type owl:Class ;
-          rdfs:subClassOf :PhenomeneMeteoExtreme ;
-          rdfs:label "Canicule"@fr ,
-                     "Heatwave"@en ;
-          <http://www.w3.org/2004/02/skos/core#definition> "A period of time such as a few weeks when the weather is much hotter than usual"@en ;
           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                        owl:onProperty :aPourPluviometrie ;
                                                        owl:allValuesFrom [ rdf:type owl:Class ;
@@ -334,7 +339,11 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                      ]
                                                    ) ;
                                 rdf:type owl:Class
-                              ] .
+                              ] ;
+          rdfs:subClassOf :PhenomeneMeteoExtreme ;
+          rdfs:label "Canicule"@fr ,
+                     "Heatwave"@en ;
+          <http://www.w3.org/2004/02/skos/core#definition> "A period of time such as a few weeks when the weather is much hotter than usual"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#CloudSunny
@@ -360,10 +369,6 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Cyclone
 :Cyclone rdf:type owl:Class ;
-         rdfs:subClassOf :PhenomeneMeteoExtreme ;
-         rdfs:label "Cyclone"@en ,
-                    "Cyclone"@fr ;
-         <http://www.w3.org/2004/02/skos/core#definition> "Wind moving in a circular direction towards an area of low atmospheric pressure"@en ;
          owl:equivalentClass [ rdf:type owl:Class ;
                                owl:unionOf ( :Ouragan
                                              [ rdf:type owl:Restriction ;
@@ -371,8 +376,11 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                owl:allValuesFrom :VeryHighWindSpeed
                                              ]
                                            )
-                             ] .
-
+                             ] ;
+         rdfs:subClassOf :PhenomeneMeteoExtreme ;
+         rdfs:label "Cyclone"@en ,
+                    "Cyclone"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Wind moving in a circular direction towards an area of low atmospheric pressure"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#DegréCelcius
@@ -477,10 +485,15 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
       <http://www.w3.org/2004/02/skos/core#definition> "Period when there is natural light from the sun"@en .
 
 
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#KelvinDegree
+:KelvinDegree rdf:type owl:Class ;
+              rdfs:subClassOf :Unit .
+
+
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Lieu
 :Lieu rdf:type owl:Class ;
-      owl:disjointWith :MesureMeteo ,
-                       :MesurePhysique ,
+      owl:disjointWith :MesurePhysique ,
+                       :ObservationMeteo ,
                        :Unit ;
       rdfs:label "Lieu"@fr ,
                  "Place"@en ;
@@ -555,20 +568,10 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                 <http://www.w3.org/2004/02/skos/core#definition> "Data that have been recorded by a device in order to measure humidity"@en .
 
 
-###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesureMeteo
-:MesureMeteo rdf:type owl:Class ;
-             owl:disjointWith :MesurePhysique ,
-                              :Unit ;
-             owl:hasKey ( :aPourStationMétéo
-                        ) ;
-             rdfs:label "MesureMeteo"@fr ,
-                        "WeatherMeasurement"@en ;
-             <http://www.w3.org/2004/02/skos/core#definition> "Set of data that allow to define a weather at a given time"@en .
-
-
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#MesurePhysique
 :MesurePhysique rdf:type owl:Class ;
-                owl:disjointWith :Unit ;
+                owl:disjointWith :ObservationMeteo ,
+                                 :Unit ;
                 owl:hasKey ( :aPourUnité
                            ) ,
                            ( :aPourValeur
@@ -668,26 +671,23 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Nébulosité
 :Nébulosité rdf:type owl:Class ;
-            rdfs:subClassOf :ObservationMeteo ;
+            rdfs:subClassOf :WeatherMeasurement ;
             rdfs:label "Nebulosity"@en ,
                        "Nébulosité"@fr .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#ObservationMeteo
 :ObservationMeteo rdf:type owl:Class ;
-                  rdfs:subClassOf :MesurePhysique ;
-                  rdfs:comment "Classe qui correspond à ce qui peut être mesuré à un instant précis vis à vis de la météo: le vent, la luminosité,la pluviométrie,..."@fr ;
+                  owl:disjointWith :Unit ;
+                  owl:hasKey ( :aPourStationMétéo
+                             ) ;
                   rdfs:label "ObservationMeteo"@fr ,
                              "WeatherObservation"@en ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "Measurement of a Meteoroligical data"@en .
+                  <http://www.w3.org/2004/02/skos/core#definition> "Set of data that allow to define a weather at a given time"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Orage
 :Orage rdf:type owl:Class ;
-       rdfs:subClassOf :Tempete ;
-       rdfs:label "Orage"@fr ,
-                  "Thunderstorm"@en ;
-       <http://www.w3.org/2004/02/skos/core#definition> "A storm in which there is thunder"@en ;
        owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                     owl:onProperty :aPourPluviometrie ;
                                                     owl:allValuesFrom :VeryHeavyRain
@@ -702,15 +702,15 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                   ]
                                                 ) ;
                              rdf:type owl:Class
-                           ] .
+                           ] ;
+       rdfs:subClassOf :Tempete ;
+       rdfs:label "Orage"@fr ,
+                  "Thunderstorm"@en ;
+       <http://www.w3.org/2004/02/skos/core#definition> "A storm in which there is thunder"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Ouragan
 :Ouragan rdf:type owl:Class ;
-         rdfs:subClassOf :Tempete ;
-         rdfs:label "Hurricane"@en ,
-                    "Ouragan"@fr ;
-         <http://www.w3.org/2004/02/skos/core#definition> "A large destructive storm that forms over the ocean"@en ;
          owl:equivalentClass [ rdf:type owl:Class ;
                                owl:unionOf ( :Cyclone
                                              [ rdf:type owl:Restriction ;
@@ -718,7 +718,11 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                owl:allValuesFrom :VeryHighWindSpeed
                                              ]
                                            )
-                             ] .
+                             ] ;
+         rdfs:subClassOf :Tempete ;
+         rdfs:label "Hurricane"@en ,
+                    "Ouragan"@fr ;
+         <http://www.w3.org/2004/02/skos/core#definition> "A large destructive storm that forms over the ocean"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pays
@@ -754,7 +758,7 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Pluviométrie
 :Pluviométrie rdf:type owl:Class ;
-              rdfs:subClassOf :ObservationMeteo ;
+              rdfs:subClassOf :WeatherMeasurement ;
               rdfs:label "Pluviométrie"@fr ,
                          "Rainfall"@en .
 
@@ -798,7 +802,7 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#RayonnementSolaire
 :RayonnementSolaire rdf:type owl:Class ;
-                    rdfs:subClassOf :ObservationMeteo ;
+                    rdfs:subClassOf :WeatherMeasurement ;
                     rdfs:label "RayonnementSolaire"@fr ,
                                "SolarRadiation"@en .
 
@@ -873,25 +877,26 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                                                              )
                                                                                ]
                                                            ]
-                                                         ) 
+                                                         ) ;
+                                      rdf:type owl:Class
                                     ] ;
                 rdfs:subClassOf :Tempete .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempeteDeSable
 :TempeteDeSable rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :aPourVitesseVent ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :HighWindSpeed
+                                                                        :VeryHighWindSpeed
+                                                                      )
+                                                        ]
+                                    ] ;
+                rdfs:subClassOf :Tempete ;
                 rdfs:label "Sandstorm"@en ,
                            "TempeteDeSable"@fr ;
-                <http://www.w3.org/2004/02/skos/core#definition> "A storm of wind, carrying with it clouds of sand"@en ;
-                rdfs:subClassOf :Tempete ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty :aPourVitesseVent ;
-                                  owl:allValuesFrom [ rdf:type owl:Class ;
-                                                      owl:unionOf ( :HighWindSpeed
-                                                                    :VeryHighWindSpeed
-                                                                  )
-                                                    ]
-                                ] .
+                <http://www.w3.org/2004/02/skos/core#definition> "A storm of wind, carrying with it clouds of sand"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#TempèteDeGrèle
@@ -930,7 +935,7 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#Vent
 :Vent rdf:type owl:Class ;
-      rdfs:subClassOf :ObservationMeteo ;
+      rdfs:subClassOf :WeatherMeasurement ;
       rdfs:label "Vent"@fr ,
                  "Wind"@en .
 
@@ -983,6 +988,15 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#VisibilityValuePartition
 :VisibilityValuePartition rdf:type owl:Class ;
                           rdfs:subClassOf :ValuePartition .
+
+
+###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#WeatherMeasurement
+:WeatherMeasurement rdf:type owl:Class ;
+                    rdfs:subClassOf :MesurePhysique ;
+                    rdfs:comment "Classe qui correspond à ce qui peut être mesuré à un instant précis vis à vis de la météo: le vent, la luminosité,la pluviométrie,..."@fr ;
+                    rdfs:label "MesureMeteo"@fr ,
+                               "WeatherMeasurement"@en ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "Measurement of a Meteoroligical data"@en .
 
 
 ###  http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#West

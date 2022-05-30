@@ -27,6 +27,14 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie#aPourPrecipitation
+:aPourPrecipitation rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
+                    rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations> ;
+                    rdfs:label "aPourPrecipitation"@fr ,
+                               "hasPrecipitation"@en .
+
+
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent> rdf:type owl:ObjectProperty ;
                                                                                               rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
@@ -55,9 +63,8 @@
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> rdf:type owl:ObjectProperty ;
                                                                                               rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
                                                                                               rdf:type owl:FunctionalProperty ;
-                                                                                              rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition> ;
-                                                                                              rdfs:label "aPourPrécipitation"@fr ,
-                                                                                                         "hasPrecipitation"@en .
+                                                                                              rdfs:label "aPourNiveauDePrécipitation"@fr ,
+                                                                                                         "hasPrecipitationLevel"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourStationMétéo
@@ -171,7 +178,8 @@
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel> rdf:type owl:ObjectProperty ;
-                                                                                        rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> .
+                                                                                        rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> ;
+                                                                                        rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition> .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSunshine

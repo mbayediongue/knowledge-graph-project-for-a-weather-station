@@ -41,6 +41,11 @@
                                "hasPrecipitation"@en .
 
 
+###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie#canMesure
+:canMesure rdf:type owl:ObjectProperty ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Give what a weather sation can mesure"@en .
+
+
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent> rdf:type owl:ObjectProperty ;
                                                                                               rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
@@ -260,7 +265,9 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                                                      rdfs:subPropertyOf owl:topDataProperty ;
                                                                                      rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo> ,
                                                                                                  <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo> ;
-                                                                                     rdfs:range xsd:dateTime .
+                                                                                     rdfs:range xsd:dateTime ;
+                                                                                     rdfs:label "aPourDate"@fr ,
+                                                                                                "hasDate"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDateCreation
@@ -269,13 +276,6 @@ owl:topObjectProperty rdf:type owl:FunctionalProperty ;
                                                                                              rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo> ,
                                                                                                          <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo> ;
                                                                                              rdfs:range xsd:dateTime .
-
-
-###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDatePrevisionnelle
-<http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDatePrevisionnelle> rdf:type owl:DatatypeProperty ;
-                                                                                                   rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDate> ;
-                                                                                                   rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PrevisionMeteo> ;
-                                                                                                   rdfs:range xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourValeur

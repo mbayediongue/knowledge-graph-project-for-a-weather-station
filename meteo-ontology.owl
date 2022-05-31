@@ -4,13 +4,18 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix meteo: <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#> .
+@prefix weather: <http://www.semanticweb.org/pierr/ontologies/2022/3/meteo-ontologies#> .
 @base <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie> .
 
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie> rdf:type owl:Ontology ;
                                                                            owl:versionIRI <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie/1.0.0> ;
                                                                            owl:imports <http://www.w3.org/2006/time#2016> ;
-                                                                           rdfs:comment "An ontology to describe meteo" .
+                                                                           <http://purl.org/dc/terms/creator> "DIONGUE Mbaye" ,
+                                                                                                              "DUNOU Nicolas" ,
+                                                                                                              "JEANNEAU Aurélien" ,
+                                                                                                              "REBOURS Pierre-Emmanuel" ;
+                                                                           rdfs:comment "An ontology to describe weather" ;
+                                                                           rdfs:label "WeatherOntology"@en .
 
 #################################################################
 #    Datatypes
@@ -27,6 +32,14 @@
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologie#aPourPrecipitation
+:aPourPrecipitation rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
+                    rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations> ;
+                    rdfs:label "aPourPrecipitation"@fr ,
+                               "hasPrecipitation"@en .
+
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourDirectionVent> rdf:type owl:ObjectProperty ;
@@ -56,9 +69,8 @@
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> rdf:type owl:ObjectProperty ;
                                                                                               rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasCaracteristics> ;
                                                                                               rdf:type owl:FunctionalProperty ;
-                                                                                              rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition> ;
-                                                                                              rdfs:label "aPourPrécipitation"@fr ,
-                                                                                                         "hasPrecipitation"@en .
+                                                                                              rdfs:label "aPourNiveauDePrécipitation"@fr ,
+                                                                                                         "hasLevelPrecipitation"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourStationMétéo
@@ -123,10 +135,11 @@
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#altitude
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#altitude> rdf:type owl:ObjectProperty ;
                                                                                     rdfs:subPropertyOf owl:topObjectProperty ;
-                                                                                    rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#PhenomeneMeteoExtreme> ;
-                                                                                    rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Précipitations> ;
+                                                                                    rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu> ;
+                                                                                    rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureAngle> ;
                                                                                     rdfs:label "altitude"@en ,
-                                                                                               "altitude"@fr .
+                                                                                               "altitude"@fr ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#definition> "Give the altitude of a Place"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#correspondAuLieu
@@ -172,7 +185,8 @@
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel
 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSnowLevel> rdf:type owl:ObjectProperty ;
-                                                                                        rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> .
+                                                                                        rdfs:subPropertyOf <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#aPourPrécipitation> ;
+                                                                                        rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#SnowLevelValuePartition> .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#hasSunshine
@@ -199,7 +213,9 @@
                                                                                     rdfs:subPropertyOf owl:topObjectProperty ;
                                                                                     rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune> ,
                                                                                                 <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit> ,
-                                                                                                <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo> .
+                                                                                                <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo> ;
+                                                                                    rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureAngle> ;
+                                                                                    <http://www.w3.org/2004/02/skos/core#definition> "Give the latitude of a place"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude
@@ -208,8 +224,10 @@
                                                                                      rdfs:domain <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune> ,
                                                                                                  <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu-Dit> ,
                                                                                                  <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#StationMeteo> ;
+                                                                                     rdfs:range <http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureAngle> ;
                                                                                      rdfs:label "longitude"@en ,
-                                                                                                "longitude"@fr .
+                                                                                                "longitude"@fr ;
+                                                                                     <http://www.w3.org/2004/02/skos/core#definition> "Give the longitude of a place"@en .
 
 
 ###  http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#mesureLaGrandeurPhysique

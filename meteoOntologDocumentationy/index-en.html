@@ -84,7 +84,47 @@ An ontology to describe meteo</span>
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+The goal of this ontology is to buil an knwoledge grapgh based on the observation of a meteo station. We want this ontology as general as possible (for example we would want our ontology to describe convenienty meteo observations in Sahara, in Siberia or in March). For this reason, we assume it would be more convenient to use many (general) classes and to not insist in the definition of their instances. <br>
+
+Our purpose is given a meteo station that provides atmospherical and meteorogical measurements (temperature, pression, rainfall, wind speed, humidity, solar radiation, nebulosity ...) , we would like to deduce the corresponding meteo phenemenon that can be 'normal' (rain, snow... ) or 'extrem' (cyclone, gust of wind, sand storm, blizzard ...).<br>
+
+<h3> I. Description of classes </h3>
+We regroup the classes in 5 big super classes:
+<ul>
+   <li> <b> </b>: This class describes all physical quantities of interest. Its subclasses include meteorological measurement such as humidity ( <a href="#s#MesureHumidité"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureHumidité">HumidityMeasurement</a>), 
+temperature ( <a href="#s#MesureTemperature"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#MesureTemperature">TemperatureMeasurement</a>) etc. This class contains also the abstract class  <a href="#s#ObservationMeteo"
+            title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#ObservationMeteo">WeatherObservation</a>. This class is not exactly a classical physical quantity but its subclasses are some instesting quantities to describe meteo:   <a href="#s#Nébulosité"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nébulosité">Nebulosity</a>, <a href="#s#Pluviométrie"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pluviométrie">Rainfall</a>,  <a href="#s#RayonnementSolaire"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#RayonnementSolaire">SolarRadiation</a> etc.
+
+      </li>
+   
+   <li>
+      <a href="#s#Lieu"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Lieu">Place</a>: This class enable to locate precisely a given meteo station. To achieve that it has subclasses that indicate more and more precisely the location of the station by indicating the <a href="#s#Pays"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Pays">Country</a>
+   , the <a href="#s#Departement"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Departement">Department</a>, the <a href="#s#Region"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Region">Region</a> and the
+         <a href="#s#Commune"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Commune">Town</a>. The <a href="#s#latitude"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#latitude"> and the <a href="#s#longitude"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#longitude">longitude</a> are also given.
+         
+   </li>
+   <li><a href="#s#DescriptionMeteo"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#DescriptionMeteo">WeatherDescription</a>: This class contains a (qualitative) description of the meteorical situation of a place. For example, it can indicate if it is<a href="#s#Nuageux"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#Nuageux">Cloudy</a>,      <a href="#s#CloudSunny"
+         title="http://www.semanticweb.org/EMSEIAStudentJRDD/ontologies/meteo-ontologies#CloudSunny">
+         <span>cloud sunny</span> etc.
+      </a> 
+   </li>  
+   
+
+The   </span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
